@@ -1,0 +1,15 @@
+<table>
+    <tr>
+        <td>Colega</td>
+        <td>Data do emprestimo</td>
+        <td>Data previsto</td>
+        <td>Data devolução</td>
+    </tr>
+
+    <tr *ngFor="let emprestimo of emprestimos">
+        <td>{{emprestimo.colega}}</td>
+        <td>{{emprestimo.dataEmprestimo}}</td>
+        <td>{{emprestimo.dataPrevisao}}</td>
+        <td>{{emprestimo.Devolucao}}</td>
+    </tr>
+</table>
