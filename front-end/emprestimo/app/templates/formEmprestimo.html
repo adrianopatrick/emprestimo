@@ -1,0 +1,29 @@
+<form #f="ngForm">
+   <div class="form-group">
+        <label >Colega:</label>
+        <input type="text" class="form-control" 
+            id="colega" placeholder="Nome do Colega." required
+            [(ngModel)]="emprestimo.colega" name="colega"
+            ngControl="colega" #colega="ngModel" #spy>
+        <br>TODO: remove this: {{spy.className}}
+        <div [hidden]="colega.valid || colega.pristine" class="alert alert-danger">
+            Colega é um campo obrigatório
+        </div>
+   </div>
+   <div class="form-group">
+        <label >Data do Emprestimo:</label>
+        <input type="text" class="form-control" 
+        id="dtEmprestimo" placeholder="Data do Emprestimo." required
+        [(ngModel)]="emprestimo.dataEmprestimo" name="dtEmprestimo"
+        ngControl="dtEmprestimo">
+   </div>
+   <div class="form-group">
+        <label>Data Previsão:</label>
+        <input type="text" class="form-control" 
+            id="dtPrevisao" placeholder="Data Previsão." required
+            [(ngModel)]="emprestimo.dataPrevisao" name="dtPrevisao"
+            ngControl="dtPrevisao">
+   </div>
+   <button class="btn btn-primary">Salvar</button>
+   <button class="btn btn-default">Cancelar</button>
+</form>

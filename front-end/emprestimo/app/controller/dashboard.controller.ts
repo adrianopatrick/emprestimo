@@ -10,5 +10,4 @@ export class Dashboard {
             {colega: 'Maria', dataEmprestimo: '30/03/2016', 
             dataPrevisao: '29/06/2016', dataDevolucao: null}];
 
-
 }

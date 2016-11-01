@@ -1,9 +1,10 @@
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { Dashboard } from './controller/dashboard.controller'
+import { Dashboard, FormEmprestimo } from './controller'
 
 const appRoutes: Routes = [
-    {path: '', component: Dashboard}
+    {path: '', component: Dashboard},
+    {path: 'formEmprestimo', component: FormEmprestimo}
 ];
 
 export const appRoutingProviders: any[] = [

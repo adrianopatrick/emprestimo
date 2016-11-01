@@ -1,7 +1,7 @@
 export class Emprestimo {
-    colega : string;
-    dataEmprestimo : string;
-    dataPrevisao: string;
-    dataDevolucao: string;
+    public colega : string;
+    public dataEmprestimo : string;
+    public dataPrevisao: string;
+    public dataDevolucao: string;
 
 }

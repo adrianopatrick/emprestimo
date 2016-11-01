@@ -10,16 +10,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
+var forms_1 = require('@angular/forms');
 var app_routing_1 = require('./app.routing');
 var app_component_1 = require('./app.component');
 var controller_1 = require('./controller');
+var inputLabel_component_1 = require('./components/inputLabel.component');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, app_routing_1.routing],
-            declarations: [app_component_1.AppComponent, controller_1.Dashboard],
+            imports: [platform_browser_1.BrowserModule, app_routing_1.routing, forms_1.FormsModule],
+            declarations: [app_component_1.AppComponent, controller_1.Dashboard, controller_1.FormEmprestimo, inputLabel_component_1.InputLabel],
             providers: [app_routing_1.appRoutingProviders],
             bootstrap: [app_component_1.AppComponent]
         }), 
