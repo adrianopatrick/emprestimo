@@ -22,7 +22,7 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, app_routing_1.routing, forms_1.FormsModule],
             declarations: [app_component_1.AppComponent, controller_1.Dashboard, controller_1.FormEmprestimo, inputLabel_component_1.InputLabel],
-            providers: [app_routing_1.appRoutingProviders],
+            providers: [app_routing_1.appRoutingProviders, controller_1.Dashboard],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

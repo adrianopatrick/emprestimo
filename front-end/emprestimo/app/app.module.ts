@@ -9,7 +9,7 @@ import { InputLabel } from './components/inputLabel.component'
 @NgModule({
   imports:[ BrowserModule,routing , FormsModule ],
   declarations: [ AppComponent, Dashboard, FormEmprestimo, InputLabel],
-  providers: [appRoutingProviders],
+  providers: [appRoutingProviders, Dashboard],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

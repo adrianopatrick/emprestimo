@@ -1,10 +1,8 @@
-import {Emprestimo} from '../entitys/emprestimo.entity';
 import {Component} from '@angular/core';
+import {Emprestimo} from '../entitys/emprestimo.entity';
 
-@Component({
-    templateUrl: '../app/templates/dashboard.html'
-})
-export class Dashboard {
+export class ContatoService {
+
     emprestimos: Array<Emprestimo> = [{
         colega: 'João', dataEmprestimo: '29/03/2016',
         dataPrevisao: '29/06/2016', dataDevolucao: '29/03/2016'
@@ -14,7 +12,13 @@ export class Dashboard {
             dataPrevisao: '29/06/2016', dataDevolucao: null
         }];
 
-    public add(emprestimo: Emprestimo) {
-        this.emprestimos.push(emprestimo);
+    public getEmprestimos(): Array<Emprestimo> {
+
+        return this.emprestimos;
     }
+
+    public addEmprestimo(emprestimo : Emprestimo) {
+        this.emprestimos.push(emprestimo)
+    }
+
 }

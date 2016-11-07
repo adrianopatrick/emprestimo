@@ -10,18 +10,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var entity_1 = require('../entity');
+var dashboard_controller_1 = require('dashboard.controller');
 var FormEmprestimo = (function () {
-    function FormEmprestimo() {
+    function FormEmprestimo(_dashboard) {
+        this.dashboard = dashboard_controller_1.Dashboard;
         this.emprestimo = new entity_1.Emprestimo();
     }
+    FormEmprestimo.prototype.salvar = function () {
+        this.dashboard.add(this.emprestimo);
+    };
     FormEmprestimo = __decorate([
         core_1.Component({
             selector: 'formEmprestimo',
-            templateUrl: '../app/templates/formEmprestimo.html'
-        }), 
-        __metadata('design:paramtypes', [])
+            templateUrl: '../app/templates/formEmprestimo.html',
+            providers: [dashboard_controller_1.Dashboard]
+        }),
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [(typeof (_a = typeof dashboard_controller_1.Dashboard !== 'undefined' && dashboard_controller_1.Dashboard) === 'function' && _a) || Object])
     ], FormEmprestimo);
     return FormEmprestimo;
+    var _a;
 }());
 exports.FormEmprestimo = FormEmprestimo;
 //# sourceMappingURL=formEmprestimo.controller.js.map

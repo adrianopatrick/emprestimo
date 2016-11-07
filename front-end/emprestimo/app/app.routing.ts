@@ -4,6 +4,7 @@ import { Dashboard, FormEmprestimo } from './controller'
 
 const appRoutes: Routes = [
     {path: '', component: Dashboard},
+    {path: 'dashboard', component: Dashboard},
     {path: 'formEmprestimo', component: FormEmprestimo}
 ];
 
