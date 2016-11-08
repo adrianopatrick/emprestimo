@@ -1,18 +1,25 @@
 import {Emprestimo} from '../entitys/emprestimo.entity';
 import {Component} from '@angular/core';
+import { EmprestimoService } from '../services/emprestimo.service';
 
 @Component({
-    templateUrl: '../app/templates/dashboard.html'
+    templateUrl: '../app/templates/dashboard.html',
+    providers: [EmprestimoService]
 })
 export class Dashboard {
-    emprestimos: Array<Emprestimo> = [{
-        colega: 'João', dataEmprestimo: '29/03/2016',
-        dataPrevisao: '29/06/2016', dataDevolucao: '29/03/2016'
-    },
-        {
-            colega: 'Maria', dataEmprestimo: '30/03/2016',
-            dataPrevisao: '29/06/2016', dataDevolucao: null
-        }];
+
+    emprestimoService: EmprestimoService;
+    emprestimos: Array<Emprestimo>;
+
+    constructor(emprestimoService: EmprestimoService){
+        this.emprestimos = emprestimoService.getEmprestimos();
+        console.log("construiu");
+    }
+
+    public getEmprestimos() {
+        console.log("chamou!!")
+        this.emprestimos = this.emprestimoService.getEmprestimos();
+    }
 
     public add(emprestimo: Emprestimo) {
         this.emprestimos.push(emprestimo);

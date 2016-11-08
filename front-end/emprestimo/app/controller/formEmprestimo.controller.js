@@ -9,27 +9,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var entity_1 = require('../entity');
-var dashboard_controller_1 = require('dashboard.controller');
+var emprestimo_service_1 = require('../services/emprestimo.service');
 var FormEmprestimo = (function () {
-    function FormEmprestimo(_dashboard) {
-        this.dashboard = dashboard_controller_1.Dashboard;
+    function FormEmprestimo(router, emprestimoService) {
+        this.router = router;
+        this.emprestimoService = emprestimoService;
         this.emprestimo = new entity_1.Emprestimo();
     }
     FormEmprestimo.prototype.salvar = function () {
-        this.dashboard.add(this.emprestimo);
+        this.emprestimoService.addEmprestimo(this.emprestimo);
+        this.emprestimo = null;
+        for (var empres in this.emprestimoService.getEmprestimos()) {
+            console.log(this.emprestimoService.getEmprestimos()[empres].colega);
+        }
+        this.router.navigate(['/dashboard']);
     };
     FormEmprestimo = __decorate([
         core_1.Component({
             selector: 'formEmprestimo',
             templateUrl: '../app/templates/formEmprestimo.html',
-            providers: [dashboard_controller_1.Dashboard]
-        }),
-        core_1.Injectable(), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof dashboard_controller_1.Dashboard !== 'undefined' && dashboard_controller_1.Dashboard) === 'function' && _a) || Object])
+            providers: [emprestimo_service_1.EmprestimoService]
+        }), 
+        __metadata('design:paramtypes', [router_1.Router, emprestimo_service_1.EmprestimoService])
     ], FormEmprestimo);
     return FormEmprestimo;
-    var _a;
 }());
 exports.FormEmprestimo = FormEmprestimo;
 //# sourceMappingURL=formEmprestimo.controller.js.map

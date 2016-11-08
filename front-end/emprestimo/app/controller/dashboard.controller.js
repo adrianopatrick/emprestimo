@@ -9,25 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var emprestimo_service_1 = require('../services/emprestimo.service');
 var Dashboard = (function () {
-    function Dashboard() {
-        this.emprestimos = [{
-                colega: 'João', dataEmprestimo: '29/03/2016',
-                dataPrevisao: '29/06/2016', dataDevolucao: '29/03/2016'
-            },
-            {
-                colega: 'Maria', dataEmprestimo: '30/03/2016',
-                dataPrevisao: '29/06/2016', dataDevolucao: null
-            }];
+    function Dashboard(emprestimoService) {
+        this.emprestimos = emprestimoService.getEmprestimos();
+        console.log("construiu");
     }
+    Dashboard.prototype.getEmprestimos = function () {
+        console.log("chamou!!");
+        this.emprestimos = this.emprestimoService.getEmprestimos();
+    };
     Dashboard.prototype.add = function (emprestimo) {
         this.emprestimos.push(emprestimo);
     };
     Dashboard = __decorate([
         core_1.Component({
-            templateUrl: '../app/templates/dashboard.html'
+            templateUrl: '../app/templates/dashboard.html',
+            providers: [emprestimo_service_1.EmprestimoService]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [emprestimo_service_1.EmprestimoService])
     ], Dashboard);
     return Dashboard;
 }());

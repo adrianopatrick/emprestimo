@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {Emprestimo} from '../entitys/emprestimo.entity';
 
-export class ContatoService {
+export class EmprestimoService {
 
     emprestimos: Array<Emprestimo> = [{
         colega: 'João', dataEmprestimo: '29/03/2016',
