@@ -11,23 +11,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var emprestimo_service_1 = require('../services/emprestimo.service');
 var Dashboard = (function () {
-    function Dashboard(emprestimoService) {
-        this.emprestimos = emprestimoService.getEmprestimos();
-        console.log("construiu");
-    }
-    Dashboard.prototype.getEmprestimos = function () {
-        console.log("chamou!!");
+    function Dashboard() {
+        this.emprestimoService = emprestimo_service_1.EmprestimoService.getInstance();
         this.emprestimos = this.emprestimoService.getEmprestimos();
-    };
-    Dashboard.prototype.add = function (emprestimo) {
-        this.emprestimos.push(emprestimo);
-    };
+    }
     Dashboard = __decorate([
         core_1.Component({
-            templateUrl: '../app/templates/dashboard.html',
-            providers: [emprestimo_service_1.EmprestimoService]
+            templateUrl: '../app/templates/dashboard.html'
         }), 
-        __metadata('design:paramtypes', [emprestimo_service_1.EmprestimoService])
+        __metadata('design:paramtypes', [])
     ], Dashboard);
     return Dashboard;
 }());

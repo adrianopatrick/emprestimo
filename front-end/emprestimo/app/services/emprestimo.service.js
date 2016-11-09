@@ -10,6 +10,12 @@ var EmprestimoService = (function () {
                 dataPrevisao: '29/06/2016', dataDevolucao: null
             }];
     }
+    EmprestimoService.getInstance = function () {
+        if (EmprestimoService.instance == null) {
+            EmprestimoService.instance = new EmprestimoService();
+        }
+        return EmprestimoService.instance;
+    };
     EmprestimoService.prototype.getEmprestimos = function () {
         return this.emprestimos;
     };
