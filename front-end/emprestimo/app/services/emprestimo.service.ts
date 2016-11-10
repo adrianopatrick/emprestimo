@@ -7,13 +7,13 @@ export class EmprestimoService {
     static isCreating: Boolean;
     emprestimos: Array<Emprestimo>;
 
-    constructor(){
+    constructor() {
         this.emprestimos = [{
-            colega: 'João', dataEmprestimo: '29/03/2016',
+            selecionado: false, colega: 'João', coisa: 'Livro Harry Potter', dataEmprestimo: '29/03/2016',
             dataPrevisao: '29/06/2016', dataDevolucao: '29/03/2016'
         },
             {
-                colega: 'Maria', dataEmprestimo: '30/03/2016',
+                selecionado: false, colega: 'Maria', coisa: 'HD externo 1TB', dataEmprestimo: '30/03/2016',
                 dataPrevisao: '29/06/2016', dataDevolucao: null
             }];
     }
@@ -30,8 +30,15 @@ export class EmprestimoService {
         return this.emprestimos;
     }
 
-    public addEmprestimo(emprestimo : Emprestimo) {
+    public addEmprestimo(emprestimo: Emprestimo) {
         this.emprestimos.push(emprestimo);
+    }
+
+    public remover(emprestimo: Emprestimo){
+        var index = this.emprestimos.indexOf(emprestimo, 0);
+        if (index > -1) {
+            this.emprestimos.splice(index, 1);
+        }
     }
 
 }

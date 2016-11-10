@@ -5,7 +5,6 @@ import { EmprestimoService } from '../services/emprestimo.service';
 @Component({
     selector: 'formEmprestimo',
     templateUrl: '../app/templates/formEmprestimo.html'
-    // providers: [EmprestimoService]
 })
 export class FormEmprestimo {
     emprestimo: Emprestimo;
@@ -19,6 +18,5 @@ export class FormEmprestimo {
     salvar(){
         this.emprestimoService.addEmprestimo(this.emprestimo);
         this.emprestimo = null;
-       // this.router.navigate(['/dashboard']);
     }
 }

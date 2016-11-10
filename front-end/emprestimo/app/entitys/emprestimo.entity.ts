@@ -1,7 +1,19 @@
 export class Emprestimo {
-    public colega : string;
-    public dataEmprestimo : string;
-    public dataPrevisao: string;
-    public dataDevolucao: string;
+
+    selecionado: boolean;
+    colega: string;
+    coisa: string;
+    dataEmprestimo: string;
+    dataPrevisao: string;
+    dataDevolucao: string;
+
+    constructor(selecionado?: boolean, colega?: string, coisa?: string, dataEmprestimo?: string, dataPrevisao?: string, dataDevolucao?: string) {
+        this.selecionado = selecionado;
+        this.colega = colega;
+        this.coisa = coisa;
+        this.dataEmprestimo = dataEmprestimo;
+        this.dataPrevisao = dataPrevisao;
+        this.dataDevolucao = dataDevolucao;
+    }
 
 }

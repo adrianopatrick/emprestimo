@@ -12,9 +12,32 @@ var core_1 = require('@angular/core');
 var emprestimo_service_1 = require('../services/emprestimo.service');
 var Dashboard = (function () {
     function Dashboard() {
+        this.enableExcluir = true;
         this.emprestimoService = emprestimo_service_1.EmprestimoService.getInstance();
         this.emprestimos = this.emprestimoService.getEmprestimos();
     }
+    Dashboard.prototype.selecionar = function (emprestimo) {
+        emprestimo.selecionado = !emprestimo.selecionado;
+        this.podeExcluir();
+    };
+    Dashboard.prototype.podeExcluir = function () {
+        for (var _i = 0, _a = this.emprestimos; _i < _a.length; _i++) {
+            var empr = _a[_i];
+            if (empr.selecionado) {
+                this.enableExcluir = false;
+                return;
+            }
+        }
+        this.enableExcluir = true;
+    };
+    Dashboard.prototype.remover = function () {
+        for (var _i = 0, _a = this.emprestimos; _i < _a.length; _i++) {
+            var empr = _a[_i];
+            if (empr.selecionado) {
+                emprestimo_service_1.EmprestimoService.getInstance().remover(empr);
+            }
+        }
+    };
     Dashboard = __decorate([
         core_1.Component({
             templateUrl: '../app/templates/dashboard.html'

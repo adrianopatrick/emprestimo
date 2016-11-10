@@ -19,7 +19,6 @@ var FormEmprestimo = (function () {
     FormEmprestimo.prototype.salvar = function () {
         this.emprestimoService.addEmprestimo(this.emprestimo);
         this.emprestimo = null;
-        // this.router.navigate(['/dashboard']);
     };
     FormEmprestimo = __decorate([
         core_1.Component({

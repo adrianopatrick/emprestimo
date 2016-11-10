@@ -18,10 +18,11 @@ footer{
 }
 
 #footer-text{
+
   position: absolute;
-  left: 52%;
-  top: 30%;
-  margin-left: -300px;
+  left: 50%;
+  margin-left: -50px;
+  top: 100px;
   font-size: 11px;
   line-height: 16px;
   color: #678889;
