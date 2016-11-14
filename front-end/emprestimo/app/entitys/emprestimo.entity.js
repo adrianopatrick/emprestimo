@@ -11,3 +11,4 @@ var Emprestimo = (function () {
     return Emprestimo;
 }());
 exports.Emprestimo = Emprestimo;
+//# sourceMappingURL=emprestimo.entity.js.map

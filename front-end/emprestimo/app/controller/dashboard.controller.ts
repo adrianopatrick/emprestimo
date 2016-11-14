@@ -38,6 +38,7 @@ export class Dashboard {
                 EmprestimoService.getInstance().remover(empr);
             }
         }
+        this.podeExcluir();
     }
 
 }

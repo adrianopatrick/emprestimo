@@ -37,6 +37,7 @@ var Dashboard = (function () {
                 emprestimo_service_1.EmprestimoService.getInstance().remover(empr);
             }
         }
+        this.podeExcluir();
     };
     Dashboard = __decorate([
         core_1.Component({
