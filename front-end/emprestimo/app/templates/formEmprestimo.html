@@ -30,7 +30,18 @@
                [(ngModel)]="emprestimo.dataPrevisao" name="dtPrevisao"
                ngControl="dtPrevisao">
     </div>
-    <button class="btn btn-primary" [routerLink]="['/dashboard']" [disabled]="!f.valid" (click)="salvar()">Salvar
+    <div class="form-group" *ngIf="atualizando">
+        <label>Data Devolução:</label>
+        <input type="text" class="form-control"
+               id="dtDevolucao" placeholder="Data Previsão." required
+               [(ngModel)]="emprestimo.dataDevolucao" name="dtDevolucao"
+               ngControl="dtDevolucao">
+    </div>
+    <button class="btn btn-primary" [routerLink]="['/dashboard']" [disabled]="!f.valid" *ngIf="!atualizando"
+            (click)="salvar()">Salvar
+    </button>
+    <button class="btn btn-primary" [routerLink]="['/dashboard']" [disabled]="!f.valid" *ngIf="atualizando"
+            (click)="atualizar()">Atualizar
     </button>
     <a class="btn btn-default" [routerLink]="['/dashboard']">Cancelar</a>
 </form>

@@ -1,24 +1,29 @@
-<table class="table table-hover">
-    <tr>
-        <td></td>
-        <td><b>#</b></td>
-        <td><b>Colega</b></td>
-        <td><b>Coisa</b></td>
-        <td><b>Data do emprestimo</b></td>
-        <td><b>Data previsto</b></td>
-        <td><b>Data devolução</b></td>
-    </tr>
+<div class="table-responsive">
+    <table class="table table-hover">
+        <tr>
+            <td></td>
+            <td><b>#</b></td>
+            <td><b>Colega</b></td>
+            <td><b>Coisa</b></td>
+            <td><b>Data do emprestimo</b></td>
+            <td><b>Data previsto</b></td>
+            <td><b>Data devolução</b></td>
+            <td><b>Ações</b></td>
+        </tr>
 
-    <tr *ngFor="let emprestimo of emprestimos; let i = index">
-        <td><input type="checkbox" [(ngModel)]="emprestimo.selecionado" (click)="selecionar(emprestimo)"></td>
-        <td>{{i + 1}}</td>
-        <td>{{emprestimo.colega}}</td>
-        <td>{{emprestimo.coisa}}</td>
-        <td>{{emprestimo.dataEmprestimo}}</td>
-        <td>{{emprestimo.dataPrevisao}}</td>
-        <td>{{emprestimo.dataDevolucao}}</td>
-    </tr>
-</table>
+        <tr *ngFor="let emprestimo of emprestimos; let i = index">
+            <td><input type="checkbox" [(ngModel)]="emprestimo.selecionado" (click)="selecionar(emprestimo)"></td>
+            <td>{{i + 1}}</td>
+            <td>{{emprestimo.colega}}</td>
+            <td>{{emprestimo.coisa}}</td>
+            <td>{{emprestimo.dataEmprestimo}}</td>
+            <td>{{emprestimo.dataPrevisao}}</td>
+            <td>{{emprestimo.dataDevolucao}}</td>
+            <td><div><a [routerLink]="['/formEmprestimo', {id:emprestimo.id}]"><span class="glyphicon glyphicon-edit tdCenter"
+                                                                                aria-hidden="true"></span></a></div></td>
+        </tr>
+    </table>
+</div>
 
-<a class="btn btn-primary btn-block" [routerLink]="['/formEmprestimo']">Novo Emprestimo</a>
+<a class="btn btn-primary btn-block" [routerLink]="['/formEmprestimo']" *ngIf="!atualizando">Novo Emprestimo</a>
 <button class="btn btn-danger btn-block" [disabled]="enableExcluir" (click)="remover()">Remover</button>

@@ -10,6 +10,7 @@ export class Dashboard {
 
     emprestimoService: EmprestimoService;
     emprestimos: Array<Emprestimo>;
+    emprestimosARemover: Array<Emprestimo> = new Array();
     enableExcluir: boolean = true;
 
     constructor() {
@@ -35,8 +36,12 @@ export class Dashboard {
     remover() {
         for (var empr of this.emprestimos) {
             if (empr.selecionado) {
-                EmprestimoService.getInstance().remover(empr);
+                this.emprestimosARemover.push(empr);
             }
+        }
+        if(this.emprestimosARemover != null && this.emprestimosARemover.length > 0){
+            EmprestimoService.getInstance().remover(this.emprestimosARemover);
+            this.emprestimosARemover = new Array();
         }
         this.podeExcluir();
     }

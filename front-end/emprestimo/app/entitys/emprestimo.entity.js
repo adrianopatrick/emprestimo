@@ -1,7 +1,8 @@
 "use strict";
 var Emprestimo = (function () {
-    function Emprestimo(selecionado, colega, coisa, dataEmprestimo, dataPrevisao, dataDevolucao) {
+    function Emprestimo(selecionado, id, colega, coisa, dataEmprestimo, dataPrevisao, dataDevolucao) {
         this.selecionado = selecionado;
+        this.id = id;
         this.colega = colega;
         this.coisa = coisa;
         this.dataEmprestimo = dataEmprestimo;

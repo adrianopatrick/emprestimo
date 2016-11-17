@@ -4,7 +4,8 @@ var controller_1 = require('./controller');
 var appRoutes = [
     { path: '', component: controller_1.Dashboard },
     { path: 'dashboard', component: controller_1.Dashboard },
-    { path: 'formEmprestimo', component: controller_1.FormEmprestimo }
+    { path: 'formEmprestimo', component: controller_1.FormEmprestimo },
+    { path: 'formEmprestimo/:id', component: controller_1.FormEmprestimo },
 ];
 exports.appRoutingProviders = [];
 exports.routing = router_1.RouterModule.forRoot(appRoutes);

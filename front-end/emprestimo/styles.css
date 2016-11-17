@@ -18,7 +18,6 @@ footer{
 }
 
 #footer-text{
-
   position: absolute;
   left: 50%;
   margin-left: -50px;
@@ -27,6 +26,11 @@ footer{
   line-height: 16px;
   color: #678889;
   text-shadow: 1px 1px 0 rgba(256,256,256,1.0);
+}
+
+.table>tbody>tr>td {
+  text-align:center;
+  vertical-align: middle;
 }
 
 .ng-valid[required], .ng-valid.required {

@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var emprestimo_service_1 = require('../services/emprestimo.service');
 var Dashboard = (function () {
     function Dashboard() {
+        this.emprestimosARemover = new Array();
         this.enableExcluir = true;
         this.emprestimoService = emprestimo_service_1.EmprestimoService.getInstance();
         this.emprestimos = this.emprestimoService.getEmprestimos();
@@ -34,8 +35,12 @@ var Dashboard = (function () {
         for (var _i = 0, _a = this.emprestimos; _i < _a.length; _i++) {
             var empr = _a[_i];
             if (empr.selecionado) {
-                emprestimo_service_1.EmprestimoService.getInstance().remover(empr);
+                this.emprestimosARemover.push(empr);
             }
+        }
+        if (this.emprestimosARemover != null && this.emprestimosARemover.length > 0) {
+            emprestimo_service_1.EmprestimoService.getInstance().remover(this.emprestimosARemover);
+            this.emprestimosARemover = new Array();
         }
         this.podeExcluir();
     };
